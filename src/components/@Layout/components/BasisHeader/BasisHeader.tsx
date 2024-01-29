@@ -1,6 +1,6 @@
 const BasisHeader = () => {
   return (
-    <div>Header</div>
+    <h1>Kimbap</h1>
   )
 }
 

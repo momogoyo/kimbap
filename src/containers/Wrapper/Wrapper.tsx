@@ -1,7 +1,17 @@
+import Image from 'next/image'
+import Metheduxk from '../../../public/metheduxk.png'
+
 const Wrapper = () => {
   return (
     <main>
-      <h1>Wrapper</h1>
+      <Image 
+        src={Metheduxk} 
+        alt="kimbap metheduxk"
+        style={{
+          width: '30%',
+          height: 'auto',
+        }}
+      />
     </main>
   )
 }
