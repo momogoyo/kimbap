@@ -1,13 +1,13 @@
 import Header from './components/Header'
 import Content from './components/Content'
 
-const Experiment = () => {
+const Post = () => {
   return (
-    <a>
+    <>
       <Header />
       <Content />
-    </a>
+    </>
   )
 }
 
-export default Experiment
+export default Post
