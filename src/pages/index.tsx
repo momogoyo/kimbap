@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo'
 
-import BasisLayout from '@/components/@Layout/BasisLayout'
-import Wrapper from '@/containers/Wrapper'
+import BasisLayout from '@/components/@Layout/BasisLayout/BasisLayout'
+import Wrapper from '@/components/Wrapper'
 
 function Home() {
   return (
