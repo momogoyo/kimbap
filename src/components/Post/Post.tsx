@@ -1,11 +1,23 @@
-import Header from './components/Header'
-import Content from './components/Content'
+import ContentList from '@/components/ContentList'
 
 const Post = () => {
   return (
     <>
-      <Header />
-      <Content />
+      <ContentList
+        groupContent={[
+          {
+            title: 'Latest Content',
+            content: [{
+              slug: 'latest',
+              title: 'Post 1',
+              subtitle: 'Subtitle 1',
+              pathname: '/post-1',
+              publishedOn: '2022-01-01T00:00:00.000Z',
+              externalLabel: false,
+            }],
+          },
+        ]}
+      />
     </>
   )
 }

@@ -2,19 +2,7 @@ import styled from 'styled-components'
 
 import ContentPreview from '@/components/ContentPreview/'
 
-type ContentList = {
-  slug: string
-  title: string
-  subtitle: string
-  publishedOn: string
-  pathname: string
-  externalLabel: boolean
-}
-
-interface ContentPreviewGridProps {
-  title: string
-  contentList: ContentList[]
-}
+import type { ContentPreviewGridProps } from './types'
 
 const ContentPreviewGrid = ({
   title,
@@ -30,7 +18,7 @@ const ContentPreviewGrid = ({
       </Header>
 
       <Grid>
-        {contentList.map((node) => (
+        {contentList.map((node, index) => (
           <ItemWrapper key={node.slug}>
             <ContentPreview {...node} />
           </ItemWrapper>

@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 
-interface ContentPreviewProps {
-  title: string
-  subtitle: string
-  pathname: string
-  externalLabel: boolean
-}
+import type { ContentPreview as ContentPreviewProps } from './types'
 
 const ContentPreview = ({
   title,
