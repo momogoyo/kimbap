@@ -1,6 +1,6 @@
 import type { ContentPreview } from '@/components/ContentPreview/types'
 
-interface ContentList extends ContentPreview {
+export interface ContentList extends ContentPreview {
   slug: string
   publishedOn: string
 }
