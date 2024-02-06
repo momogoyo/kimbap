@@ -15,7 +15,7 @@ const Wrapper = () => {
         externalLabel: false
       },
       {
-        slug: 'test',
+        slug: 'test1',
         title: 'title',
         subtitle: 'subtitle',
         publishedOn: '2024.02.01',
@@ -23,7 +23,7 @@ const Wrapper = () => {
         externalLabel: false
       },
       {
-        slug: 'test',
+        slug: 'test2',
         title: 'title',
         subtitle: 'subtitle',
         publishedOn: '2024.02.01',
@@ -31,7 +31,7 @@ const Wrapper = () => {
         externalLabel: false
       },
       {
-        slug: 'test',
+        slug: 'test3',
         title: 'title',
         subtitle: 'subtitle',
         publishedOn: '2024.02.01',
