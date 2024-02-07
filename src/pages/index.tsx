@@ -1,17 +1,27 @@
 import { NextSeo } from 'next-seo'
+import styled from 'styled-components'
 
-import StandardLayout from '@/components/@Layout/StandardLayout'
-import Wrapper from '@/components/Wrapper'
+import PostContent from '@/components/PostContent'
 
-function Home() {
+interface HomeProps {
+  postContent: any
+}
+
+const Home = ({
+  postContent
+}: HomeProps) => {
   return (
-    <>
+    <Wrapper>
       <NextSeo title="momogoyo home" />
-      <StandardLayout>
-        <Wrapper />
-      </StandardLayout>
-    </>
+      <PostContent content={postContent} />
+    </Wrapper>
   )
 }
+
+export const getStaticPaths = async () => {
+  // mdx로 페이지 정적으로 생성해서...
+}
+
+const Wrapper = styled.div``
 
 export default Home
