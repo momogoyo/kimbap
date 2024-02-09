@@ -18,10 +18,6 @@ const Home = ({
   )
 }
 
-export const getStaticPaths = async () => {
-  // mdx로 페이지 정적으로 생성해서...
-}
-
 const Wrapper = styled.div``
 
 export default Home

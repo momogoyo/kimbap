@@ -6,13 +6,13 @@ import ContentPreviewGrid from '@/components/ContentPreviewGrid'
 import type { ContentListProps } from './types'
 
 const ContentList = ({
-  groupContent
+  groupedContent
 }: ContentListProps) => {
   return (
     <StandardLayout background="var(--color-subtle-background)">
       <MaxWidthWrapper>
         <Main>
-          {groupContent.map((section, index) => (
+          {groupedContent.map((section, index) => (
             <ContentPreviewGrid 
               key={index}
               title={section.title}

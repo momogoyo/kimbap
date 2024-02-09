@@ -5,11 +5,11 @@ export interface ContentList extends ContentPreview {
   publishedOn: string
 }
 
-type GroupContentType = {
+type GroupedContentType = {
   title: string,
   content: ContentList[]
 }
 
 export interface ContentListProps {
-  groupContent: GroupContentType[]
+  groupedContent: GroupedContentType[]
 }
