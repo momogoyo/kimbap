@@ -6,7 +6,7 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (research) => `/${research._raw.flattenedPath}`
   },
-  slugParams: {
+  slugAsParams: {
     type: 'string',
     resolve: (research) => research._raw.flattenedPath.split('/').slice(1).join('/')
   }
