@@ -17,6 +17,26 @@ async function getKimbapFromParam (params: { slug: string[] }) {
   return kimbap
 }
 
+export async function generateMetadata({
+  params
+}: KimbapPageProps) {
+  const kimbap = await getKimbapFromParam(params)
+  
+  if (!kimbap) {
+    return {
+      status: 404
+    }
+  }
+  
+  const url = process.env.NEXT_PUBLIC_APP_URL
+}
+
+export async function generateStaticParams (): Promise<KimbapPageProps['params'][]> {
+  return allKimbaps.map((kimbap) => ({
+    slug: kimbap.slugAsParams.split('/')
+  }))
+}
+
 export default async function KimbapPage ({
   params
 }: KimbapPageProps) {
