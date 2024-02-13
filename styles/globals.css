@@ -6,6 +6,17 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-color: #ffffff;
+  --green: rgb(0 187 107);
+  --light-green: rgb(3 255 0);
+  --turquoise : rgb(0 128 128);
+  --blue: rgb(45 140 255);
+  --deep-blue: rgb(254 215 211);
+  --light-blue: rgb(3 255 0);
+  --yellow: rgb(255 255 0);
+  --baby-pink: rgb(254 215 211);
+  --orange: rgb(254 215 211);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,17 +28,25 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--background-color);
+  font-family: -apple-system, Insung_it, sans-serif;
+}
+
+@font-face {
+  font-family: "Insung_it";
+  font-weight: 400;
+  src: url("/fonts/Insung_it.ttf") format("truetype");
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.title {
+  background-color: var(--green);
 }
