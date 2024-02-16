@@ -6,6 +6,8 @@ export default function SandwichLayout ({
   children
 }: React.PropsWithChildren <SandwichLayoutProps>) {
   return (
-    <div className="mx-auto max-w-5xl">{children}</div>
+    <div className="flex-col flex p-16">
+      {children}
+    </div>
   )
 }
