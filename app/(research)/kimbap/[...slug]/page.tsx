@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import { allKimbaps } from '@/.contentlayer/generated'
+
 import ResearchHeader from '@/components/ResearchHeader'
+import MDX from '@/components/Mdx'
 
 interface KimbapPageProps {
   params: {
@@ -54,7 +56,7 @@ export default async function KimbapPage ({
           text={kimbap?.description}
         />
 
-        {/* <MDX /> */}
+        <MDX code={kimbap.body.code} />
       </div>
     </main>
   )
