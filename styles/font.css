@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Insung_it;
+  src: url("/fonts/Insung_it.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: EF_Diary;
+  src: url("/fonts/EF_Diary.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Ownglyph;
+  src: url("/fonts/Ownglyph.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
