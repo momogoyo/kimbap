@@ -18,8 +18,8 @@ export default function Home() {
 
             <div className="text-center m-[1em]">
               <p className="text-[4em]">김밥과 샌드위치</p>
-              <p className="mt-[1.8rem] leading-[1.8rem]">안녕하세요, 세상의 모든 김밥과 샌드위치를 연구하는 삼각 연구소입니다.</p>
-              <p className="leading-[1.8rem]">딱딱한지 않아요. 시각적인 즐거움과 시청각 적인 요소를 더했습니다.</p>
+              <p className="mt-[1.8rem] leading-[1.8rem]">안녕하세요, 세상의 모든 김밥과 샌드위치를 연구하는 삼각연구소입니다.</p>
+              <p className="leading-[1.8rem]">딱딱한지 않아요. 시각적인 즐거움과 시청각적인 요소를 더했습니다.</p>
               <p className="leading-[1.8rem]">지금 바로 이어폰을 끼고 같이 탐구해 보아요.</p>
             </div>
 
