@@ -7,8 +7,7 @@ export default function Home() {
     <div>
       <header className="z-[var(--z-overlay)] fixed w-full top-0">
         <div className="block max-w-[10em] mx-auto my-0 px-0 py-[1em] text-center text-[2em]">
-          <Link href="https://kimbap.app">
-            삼각 연구소</Link>
+          <Link href="https://kimbap.app">삼각연구소</Link>
         </div>
       </header>
       
