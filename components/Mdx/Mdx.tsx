@@ -1,4 +1,7 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import Image from 'next/image'
+
+import MdxCard from '@/components/MdxCard'
 
 interface ComponentProps {
   className?: string
@@ -64,7 +67,10 @@ const components = {
       className={`relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm ${className}`}
       {...props}
     />
-  )
+  ),
+
+  Image,
+  Card: MdxCard
 }
 
 
