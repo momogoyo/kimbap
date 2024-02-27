@@ -37,7 +37,7 @@ export default function KimbapPage () {
       </div>
 
       {kimbaps?.length ? (
-        kimbaps.map((kimbap) => (
+        kimbaps.map((kimbap, index) => (
           <article
             key={kimbap._id}
             className="
@@ -47,6 +47,9 @@ export default function KimbapPage () {
               text-[#41403e] bg-white self-center bg-none cursor-pointer inline-block text-base p-3 rounded-tl-[255px_15px] rounded-tr-[15px_225px] rounded-br-[225px_15px] rounded-bl-[15px_255px] border-[#41403e] border-solid border-2
             "
           >
+            {/* {kimbap.image && ( */}
+              <Image src={kimbap.image} alt={kimbap.title} width={804} height={452} className="rounded-md border bg-muted transition-colors" priority={index <= 1} />
+            {/* )} */}
             <div className="flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <h2 className="text-xl font-medium tracking-tight">

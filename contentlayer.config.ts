@@ -22,7 +22,11 @@ export const Kimbap = defineDocumentType(() => ({
       required: true,
     },
     description: {
+      type: 'string'
+    },
+    image: {
       type: 'string',
+      default: 'https://static.oku.club/static/media/oku@2x.78506015.png'
     },
     date: {
       type: 'date',
