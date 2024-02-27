@@ -6,7 +6,7 @@ export default function KimbapLayout ({
   children
 }: React.PropsWithChildren<KimbapLayoutProps>) {
   return (
-    <div className="flex-col flex p-16">
+    <div className="flex-col flex">
       {children}
     </div>
   )

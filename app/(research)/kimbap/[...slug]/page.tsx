@@ -49,15 +49,14 @@ export default async function KimbapPage ({
   }
 
   return (
-    <main className="relative">
-      <div>
-        <ResearchHeader 
-          heading={kimbap?.title}
-          text={kimbap?.description}
-        />
+    <main className="relative max-w-[816px] mx-auto pb-12 px-8">
+      <ResearchHeader 
+        date={kimbap.date}
+        heading={kimbap?.title}
+        text={kimbap?.description}
+      />
 
-        <MDX code={kimbap.body.code} />
-      </div>
+      <MDX code={kimbap.body.code} />
     </main>
   )
 }
