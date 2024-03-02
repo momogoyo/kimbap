@@ -47,22 +47,18 @@ export default function KimbapPage () {
               text-[#41403e] bg-white self-center bg-none cursor-pointer inline-block text-base p-3 rounded-tl-[255px_15px] rounded-tr-[15px_225px] rounded-br-[225px_15px] rounded-bl-[15px_255px] border-[#41403e] border-solid border-2
             "
           >
-            {/* {kimbap.image && ( */}
+            {kimbap.image && (
               <Image src={kimbap.image} alt={kimbap.title} width={804} height={452} className="rounded-md border bg-muted transition-colors" priority={index <= 1} />
-            {/* )} */}
+            )}
             <div className="flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <h2 className="text-xl font-medium tracking-tight">
-                  {kimbap.title}
-                </h2>
-                
-                {kimbap.description && (
-                  <p className="text-muted-foreground">{kimbap.description}</p>
-                )}
-                {kimbap.date && (
-                  <p className="text-xs text-muted-foreground">{formatDate(kimbap.date)}</p>
-                )}
-              </div>
+              <h2 className="text-xl font-medium tracking-tight">{kimbap.title}</h2>
+              
+              {kimbap.description && (
+                <p className="text-muted-foreground">{kimbap.description}</p>
+              )}
+              {kimbap.date && (
+                <p className="text-xs text-muted-foreground">{formatDate(kimbap.date)}</p>
+              )}
             </div>
             <Link href={kimbap.slug} className="absolute inset-0">
               <span className="sr-only">View</span>

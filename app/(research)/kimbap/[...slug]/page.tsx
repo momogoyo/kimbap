@@ -49,7 +49,7 @@ export default async function KimbapPage ({
   }
 
   return (
-    <main className="relative max-w-[816px] mx-auto pb-12 px-8">
+    <main className="container relative max-w-[816px] mx-auto pb-12 px-8">
       <ResearchHeader 
         date={kimbap.date}
         heading={kimbap?.title}

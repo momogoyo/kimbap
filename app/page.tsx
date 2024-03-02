@@ -4,9 +4,9 @@ import HeroImage from '/public/kimbap/hero.png'
 
 export default function Home() {
   return (
-    <div>
+    <div className="font-serif">
       <header className="z-[var(--z-overlay)] fixed w-full top-0">
-        <div className="block max-w-[10em] mx-auto my-0 px-0 py-[1em] text-center text-[2em]">
+        <div className="block max-w-[10em] mx-auto my-0 px-0 py-[1em] text-center text-[2em] ">
           <Link href="https://kimbap.app">삼각연구소</Link>
         </div>
       </header>
@@ -19,7 +19,7 @@ export default function Home() {
             <div className="text-center m-[1em]">
               <p className="text-[4em]">김밥과 샌드위치</p>
               <p className="mt-[1.8rem] leading-[1.8rem]">안녕하세요, 세상의 모든 김밥과 샌드위치를 연구하는 삼각연구소입니다.</p>
-              <p className="leading-[1.8rem]">딱딱한지 않아요. 시각적인 즐거움과 시청각적인 요소를 더했습니다.</p>
+              <p className="leading-[1.8rem]">딱딱하지 않아요. 귀여운 그림과 다양한 효과음으로 보는 내내 즐거울 거에요!</p>
               <p className="leading-[1.8rem]">지금 바로 이어폰을 끼고 같이 탐구해 보아요.</p>
             </div>
 

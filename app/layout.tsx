@@ -1,6 +1,13 @@
-import type { Metadata } from 'next'
 import '@/styles/globals.css'
+import { Gowun_Dodum } from 'next/font/google'
 import { siteConfig } from '@/config/site'
+
+import type { Metadata } from 'next'
+
+const gowunDodum = Gowun_Dodum({
+  weight: ['400'],
+  subsets: ['latin']
+})
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -40,7 +47,7 @@ export default function RootLayout({
   children,
 }: Readonly<RootLayoutProps>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={gowunDodum.className}>
       <head />
       <body>
         {children}
