@@ -30,39 +30,41 @@ export default function SandwichPage () {
         </div>
       </div>
 
-      {sandwiches?.length ? (
-        sandwiches.map((sandwich) => (
-          <article
-            key={sandwich._id}
-            className="
-              group relative rounded-lg border p-6 shadow-md transition-shadow hover:shadow-lg
-              mt-16 w-full
-              transition-all duration-[235ms] ease-[ease] delay-[0s] shadow-[15px_28px_25px_-18px_rgba(0,0,0,0.2)] transition-all duration-[235ms] ease-[ease-in-out] delay-[0s] 
-              text-[#41403e] bg-white self-center bg-none cursor-pointer inline-block text-base p-3 rounded-tl-[255px_15px] rounded-tr-[15px_225px] rounded-br-[225px_15px] rounded-bl-[15px_255px] border-[#41403e] border-solid border-2
-            "
-          >
-            <div className="flex flex-col justify-between space-y-4">
-              <div className="space-y-2">
-                <h2 className="text-xl font-medium tracking-tight">
-                  {sandwich.title}
-                </h2>
-                
-                {sandwich.description && (
-                  <p className="text-muted-foreground">{sandwich.description}</p>
-                )}
-                {sandwich.date && (
-                  <p className="text-sm text-muted-foreground">{formatDate(sandwich.date)}</p>
-                )}
+      <section className="grid gap-10 sm:grid-cols-2">
+        {sandwiches?.length ? (
+          sandwiches.map((sandwich) => (
+            <article
+              key={sandwich._id}
+              className="
+                group relative rounded-lg border p-6 shadow-md transition-shadow hover:shadow-lg
+                mt-16 w-full
+                transition-all duration-[235ms] ease-[ease] delay-[0s] shadow-[15px_28px_25px_-18px_rgba(0,0,0,0.2)] transition-all duration-[235ms] ease-[ease-in-out] delay-[0s] 
+                text-[#41403e] bg-white self-center bg-none cursor-pointer inline-block text-base p-3 rounded-tl-[255px_15px] rounded-tr-[15px_225px] rounded-br-[225px_15px] rounded-bl-[15px_255px] border-[#41403e] border-solid border-2
+              "
+            >
+              <div className="flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-xl font-medium tracking-tight">
+                    {sandwich.title}
+                  </h2>
+                  
+                  {sandwich.description && (
+                    <p className="text-muted-foreground">{sandwich.description}</p>
+                  )}
+                  {sandwich.date && (
+                    <p className="text-sm text-muted-foreground">{formatDate(sandwich.date)}</p>
+                  )}
+                </div>
               </div>
-            </div>
-            <Link href={sandwich.slug} className="absolute inset-0">
-              <span className="sr-only">View</span>
-            </Link>
-          </article>
-        ))
-      ) : (
-        <p>연구 기록이 없습니다.</p>
-      )}
+              <Link href={sandwich.slug} className="absolute inset-0">
+                <span className="sr-only">View</span>
+              </Link>
+            </article>
+          ))
+        ) : (
+          <p>연구 기록이 없습니다.</p>
+        )}
+      </section>
     </div>
   )
 }
