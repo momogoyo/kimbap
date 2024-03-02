@@ -13,8 +13,6 @@ export function ResearchHeader ({
   className,
   ...props
 }: ResearchHeaderProps) {
-  console.log(date)
-
   return (
     <div className={className} {...props}>
       <time className="block text-base text-center text-[#46474E] mt-16 mb-6">{formatDate(date)}</time>

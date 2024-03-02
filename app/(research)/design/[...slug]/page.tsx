@@ -51,7 +51,8 @@ export default async function DesignPage ({
   return (
     <main className="relative">
       <div>
-        <ResearchHeader 
+        <ResearchHeader
+          date={design.date}
           heading={design?.title}
           text={design?.description}
         />

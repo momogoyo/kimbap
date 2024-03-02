@@ -52,6 +52,7 @@ export default async function SandwichPage ({
     <main className="relative">
       <div>
         <ResearchHeader 
+          date={sandwich.date}
           heading={sandwich?.title}
           text={sandwich?.description}
         />
