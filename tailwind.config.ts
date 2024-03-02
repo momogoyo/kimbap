@@ -17,6 +17,7 @@ const config: Config = {
     fontFamily: {
       'sans': ['EF_Diary'],
       'serif': ['Insung_it'],
+      'mono': ['Menlo', 'Consolas', 'Monaco', 'monospace']
     }
   },
   plugins: [],

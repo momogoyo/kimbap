@@ -52,9 +52,6 @@
 }
 
 :root {
-  --sans: "EF_Diary", -apple-system, sans-serif;
-  --serif: "Insung_it", serif;
-  --mono: Menlo, Consolas, Monaco, monospace;
   --z-bottom: -100;
   --z-middle: 0;
   --z-top: 100;
