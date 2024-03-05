@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { compareDesc } from 'date-fns'
 import { allSandwiches } from 'contentlayer/generated'
 
@@ -22,7 +23,12 @@ export default function SandwichPage () {
         <div className="flex-row items-center justify-between flex">
           <h1 className="text-5xl font-bold text-black bg-[color:var(--yellow)]">샌드위치 연구소</h1>
           <div>
-            🥪
+            <Image
+              src="/kimbap/sandwich-icon.png"
+              alt="샌드위치 아이콘"
+              width={120}
+              height={120}
+            />
           </div>
         </div>
         <div className="flex-col flex mt-6">
