@@ -3,4 +3,4 @@
 꽉찬 인심에 배부른 김밥
 
 <br />
-<img width="798" alt="kimbap" src="https://github.com/momogoyo/kimbap/assets/131684279/18d66cde-4d9f-4d92-b8ca-b9c8e5275c5d">
+![다운로드](https://github.com/momogoyo/kimbap/assets/131684279/1f6ca133-83a6-406b-a410-89c6400d7855)
