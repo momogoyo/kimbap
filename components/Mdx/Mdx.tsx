@@ -92,7 +92,8 @@ const components = {
     />
   ),
   ol: ({ className, ...props }: ComponentProps) => (
-    <ol className={cn(
+    <ol 
+      className={cn(
         "my-6 ml-6 list-decimal",
         className
       )} 
@@ -100,19 +101,40 @@ const components = {
     />
   ),
   li: ({ className, ...props }: ComponentProps) => (
-    <li className={cn(
+    <li 
+      className={cn(
         "mt-2",
         className
       )}
       {...props}
     />
   ),
+  blockquote: ({ className, ...props }: ComponentProps) => (
+    <blockquote
+      className={cn(
+        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
+        className
+      )}
+      {...props}
+    />
+  ),
   img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img className={cn(
-      "rounded-md border",
-      className
+    <img 
+      className={cn(
+        "rounded-md border",
+        className
       )}
       alt={alt}
+      {...props}
+    />
+  ),
+  hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
+  pre: ({ className, ...props }: ComponentProps) => (
+    <pre
+      className={cn(
+        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4",
+        className
+      )}
       {...props}
     />
   ),
