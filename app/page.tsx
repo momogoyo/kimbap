@@ -26,6 +26,7 @@ export default function Home() {
             <div className="flex items-center relative border-2 border-solid border-[black] mt-[1.4rem]">
               <Link href="/kimbap" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🍙 김밥연구소</Link>
               <Link href="/sandwich" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🥪 샌디치연구소</Link>
+              <Link href="/mudscone" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🍪 머드스콘연구소</Link>
               {/* <Link href="/design" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🎨 디자인 연구소</Link> */}
             </div>
           </div>
