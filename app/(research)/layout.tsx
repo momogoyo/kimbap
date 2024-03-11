@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import Header from '@/components/Header'
 
 interface ResearchLayoutProps {
   children: React.ReactNode
@@ -10,6 +10,7 @@ export default function ResearchLayout ({
 }: React.PropsWithChildren<ResearchLayoutProps>) {
   return (
     <div className="flex min-h-screen flex-col">
+      <Header />
       {children}
     </div>
   )

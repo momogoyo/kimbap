@@ -15,3 +15,7 @@ export type NavItem = {
   href: string
   disabled?: boolean
 }
+
+export interface NavProps {
+  items?: MainNavItem[]
+}

@@ -4,23 +4,22 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+import { Icons } from '@/components/Icons'
+import MobileNav from '@/components/Navigation'
 
-import type { MainNavItem } from '@/types'
-
-interface MainNavProps {
-  items?: MainNavItem[]
-}
+import type { NavProps } from '@/types'
 
 export function Header ({
   items,
   children
-}: React.PropsWithChildren<MainNavProps>) {
+}: React.PropsWithChildren<NavProps>) {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
+  const LOGO = Icons['logo']
 
   return (
-    <div className="flex">
+    <div className="flex px-5 py-3">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        {/* <Icons.logo /> */}
+        <span>{LOGO}</span>
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
@@ -47,11 +46,11 @@ export function Header ({
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ?  <span>close</span> : <span>logo</span>}
-        <span className="font-bold">Menu</span>
+        {showMobileMenu ? <span>close</span> : <span>{LOGO}</span>}
+        {/* <span className="font-bold">Menu</span> */}
       </button>
       {showMobileMenu && items && (
-        <></>
+        <MobileNav items={items}>{children}</MobileNav>
       )}
     </div>
   )
