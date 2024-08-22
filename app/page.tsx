@@ -1,37 +1,163 @@
+'use client'
+
+import clsx from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
-import HeroImage from '/public/kimbap/hero.png'
+import { useEffect, useRef, useState } from 'react'
+
+import Avatar from '/public/avatar.png'
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const spriteRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const totalFrames = 3
+    const frameWidth = 200
+    const frameDuration = 300
+    let frameIndex = 0
+    let lastTime: number | undefined = undefined
+    let direction = 1
+    let requestId: number
+
+    const spriteElement = spriteRef.current
+
+    const animateSprite = (timestamp: number) => {
+      if (lastTime === undefined || timestamp - lastTime > frameDuration) {
+        lastTime = timestamp
+
+        const position = frameIndex * -frameWidth
+        if (spriteElement) {
+          spriteElement.style.backgroundPosition = `${position}px 0px`
+        }
+
+        if (frameIndex === totalFrames - 1) {
+          direction = -1
+        } else if (frameIndex === 0) {
+          direction = 1
+        }
+
+        frameIndex += direction
+      }
+
+      requestId = requestAnimationFrame(animateSprite)
+    }
+
+    requestId = requestAnimationFrame(animateSprite)
+
+    return () => {
+      cancelAnimationFrame(requestId)
+    }
+  }, [])
+
   return (
-    <div className="font-serif">
-      <header className="z-[var(--z-overlay)] fixed w-full top-0">
-        <div className="block max-w-[10em] mx-auto my-0 px-0 py-[1em] text-center text-[2em] ">
-          <Link href="https://kimbap.app">삼각연구소</Link>
+    <div>
+      <header>
+        <div className={'container'}>
+          <div className={clsx('row', 'flex', 'flex-wrap')}>
+            <div className={clsx('header-container', 'relative', 'w-full', 'max-w-full', 'py-0', 'px-[15px]', 'mt-[8vh]')}>
+              <div className={clsx('main-header', 'flex', 'items-center', 'justify-between')}>
+                <div className={clsx('header-path', 'small', 'flex', 'gap-[12px]')}>
+                  <Link className={clsx('text-color-secondary')} href="https://kimbap.app">kimbap.app</Link>
+                  <span className={clsx('text-color-secondary')}>/</span>
+                  <span>home</span>
+                </div>
+
+                <div className={clsx('header-menu-btn', 'select-none')}>
+                {!isOpen ? 
+                  <button type="button" onClick={() => setIsOpen(true)} className={clsx('menu-button', 'small')}>Menu</button>
+                  : <button type="button" onClick={() => setIsOpen(false)} className={clsx('menu-button', 'small')}>Close</button>
+                }
+                </div>
+                
+                <div className={clsx('menu-panel', isOpen ? 'open' : 'close', 'bg-color-secondary')}>
+                  <div className={clsx('nav-columns', 'flex')}>
+                    <div className={clsx('column', 'w-[50%]')}>
+                      <h2 className={'m-0'}>Information</h2>
+                      <ul>
+                        <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/about">About</Link></li>
+                        <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/work">Work</Link></li>
+                        {/* 블로그는 나만 보이게 */}
+                        {/* <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/blog">Blog</Link></li> */}
+                      </ul>
+                    </div>
+                    <div className={clsx('column', 'w-[50%]')}>
+                      <h2 className={'m-0'}>Browse</h2>
+                      <ul>
+                        <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/gallery">Gallery</Link></li>
+                        <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/goods">Goods</Link></li>
+                        <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/soundscape">SoundScape</Link></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
       
-      <main className="block">
-        <section className="bg-[color:var(--highlight-light)] h-screen flex flex-col justify-center">
-          <div className="flex flex-col justify-center items-center">
-            <Image src={HeroImage} alt="illustration of kimbap metheduxk" height={300} />
+      <main>
+        <section className={clsx('py-[28vh]')}>
+          <div
+            className={clsx('sprite', 'container')}
+            ref={spriteRef}
+            style={{
+              width: '200px',
+              height: '200px',
+              backgroundImage: `url('/metheduck.png')`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }}
+          ></div>
+        </section>
 
-            <div className="text-center m-[1em]">
-              <p className="text-[4em]">김밥과 샌드위치</p>
-              <p className="mt-[1.8rem] leading-[1.8rem]">안녕하세요, 세상의 모든 김밥과 샌드위치를 연구하는 삼각연구소입니다.</p>
-              <p className="leading-[1.8rem]">딱딱하지 않아요. 귀여운 그림과 다양한 효과음으로 보는 내내 즐거울 거에요!</p>
-              <p className="leading-[1.8rem]">지금 바로 이어폰을 끼고 같이 탐구해 보아요.</p>
+        <section>
+          <div className={'container'}>
+            <div className={clsx('row', 'relative', 'flex', 'flex-wrap')}>
+            <div className={clsx('line')} />
+            <div className={clsx('welcome', 'w-full', 'max-w-full', 'py-0', 'px-[15px]')}>
+              <h2>Welcome</h2>
+              <p className={clsx('texts', 'medium-margin-top', 'text-color-secondary')}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              </p>
             </div>
-
-            <div className="flex items-center relative border-2 border-solid border-[black] mt-[1.4rem]">
-              <Link href="/kimbap" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🍙 김밥연구소</Link>
-              <Link href="/sandwich" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🥪 샌디치연구소</Link>
-              <Link href="/mudscone" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🍪 머드스콘연구소</Link>
-              {/* <Link href="/design" className="flex items-center bg-[white] h-full text-[color:var(--color-fg)] p-[1em] rounded-none border-[none]">🎨 디자인 연구소</Link> */}
             </div>
           </div>
         </section>
       </main>
+
+      <footer className={clsx('py-[12vh]')}>
+        <div className={'container'}>
+          <div className={clsx('row', 'flex', 'flex-wrap')}>
+            <div className={clsx('w-full', 'max-w-full', 'py-0', 'px-[15px]')}>
+              <div className={clsx('nav-columns', 'flex', 'mb-[12vh]')}>
+                <div className={clsx('column', 'w-[50%]')}>
+                  <h2 className={'m-0'}>Information</h2>
+                  <ul>
+                    <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/about">About</Link></li>
+                    <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/work">Work</Link></li>
+                    {/* 블로그는 나만 보이게 */}
+                    {/* <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/blog">Blog</Link></li> */}
+                  </ul>
+                </div>
+                <div className={clsx('column', 'w-[50%]')}>
+                  <h2 className={'m-0'}>Browse</h2>
+                  <ul>
+                    <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/gallery">Gallery</Link></li>
+                    <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/goods">Goods</Link></li>
+                    <li className={clsx('my-[10px]')}><Link className={clsx('text-color-secondary')} href="/soundscape">SoundScape</Link></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={clsx('avatar', 'relative', 'block', 'w-[30px]', 'h-[30px]')}>
+                <Image src={Avatar} alt="미더덕 아바타" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

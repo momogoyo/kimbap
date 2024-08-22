@@ -1,12 +1,13 @@
+import { Inter as FontSans } from 'next/font/google'
+
 import '@/styles/globals.css'
-import { Gowun_Dodum } from 'next/font/google'
 import { siteConfig } from '@/config/site'
 
 import type { Metadata } from 'next'
 
-const gowunDodum = Gowun_Dodum({
-  weight: ['400'],
-  subsets: ['latin']
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
 })
 
 interface RootLayoutProps {
@@ -47,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<RootLayoutProps>) {
   return (
-    <html lang="ko" className={gowunDodum.className}>
+    <html lang="ko" className={fontSans.className}>
       <head />
       <body>
         {children}

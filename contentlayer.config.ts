@@ -44,97 +44,9 @@ export const Kimbap = defineDocumentType(() => ({
   computedFields
 }))
 
-export const Sandwich = defineDocumentType(() => ({
-  name: 'Sandwich',
-  filePathPattern: `sandwich/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      required: true,
-    },
-    description: {
-      type: 'string',
-    },
-    date: {
-      type: 'date',
-      required: true,
-    },
-    published: {
-      type: 'boolean',
-      default: true,
-    },
-    featured: {
-      type: 'boolean',
-      default: false,
-    }
-  },
-  computedFields
-}))
-
-export const Design = defineDocumentType(() => ({
-  name: 'Design',
-  filePathPattern: `design/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      required: true,
-    },
-    description: {
-      type: 'string',
-    },
-    date: {
-      type: 'date',
-      required: true,
-    },
-    published: {
-      type: 'boolean',
-      default: true,
-    },
-    featured: {
-      type: 'boolean',
-      default: false,
-    }
-  },
-  computedFields
-}))
-
-export const Mudscone = defineDocumentType(() => ({
-  name: 'Mudscone',
-  filePathPattern: `mudscone/**/*.mdx`,
-  contentType: 'mdx',
-  fields: {
-    title: {
-      type: 'string',
-      required: true,
-    },
-    description: {
-      type: 'string'
-    },
-    image: {
-      type: 'string',
-      default: 'https://static.oku.club/static/media/oku@2x.78506015.png'
-    },
-    date: {
-      type: 'date',
-      required: true,
-    },
-    published: {
-      type: 'boolean',
-      default: true,
-    },
-    featured: {
-      type: 'boolean',
-      default: false,
-    }
-  },
-  computedFields
-}))
-
 export default makeSource({
   contentDirPath: './content',
-  documentTypes: [Kimbap, Sandwich, Design, Mudscone],
+  documentTypes: [Kimbap],
   mdx: {
     remarkPlugins: [remarkGfm]
   }
