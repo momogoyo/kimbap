@@ -1,4 +1,4 @@
-import Logo from 'public/kimbap/logo.png'
+import Logo from 'public/metheduck.png'
 import Image from 'next/image'
 
 export const Icons  = {
