@@ -3,6 +3,10 @@ import { Inter as FontSans } from 'next/font/google'
 import '@/styles/globals.css'
 import { siteConfig } from '@/config/site'
 
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+import Footer from '@/components/Footer'
+
 import type { Metadata } from 'next'
 
 const fontSans = FontSans({
@@ -51,7 +55,11 @@ export default function RootLayout({
     <html lang="ko" className={fontSans.className}>
       <head />
       <body>
-        {children}
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

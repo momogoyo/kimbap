@@ -1,58 +1,84 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import { siteConfig } from '@/config/site'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
-import { Icons } from '@/components/Icons'
-import MobileNav from '@/components/Navigation'
 
-import type { NavProps } from '@/types'
+export function Header () {
+  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
-export function Header ({
-  items,
-  children
-}: React.PropsWithChildren<NavProps>) {
-  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
-  const LOGO = Icons['logo']
+  const computedPathName = pathname.replace('/', '') || 'home'
+
+  const handlePanelClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).closest('a')) {
+      setIsOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      const menuPanel = document.querySelector('.menu-panel')
+      if (menuPanel && !menuPanel.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('click', handleDocumentClick)
+    }
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick)
+    }
+  }, [isOpen])
 
   return (
-    <div className="flex px-5 py-3">
-      <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <span>{LOGO}</span>
-        <span className="hidden font-bold sm:inline-block">
-          {siteConfig.name}
-        </span>
-      </Link>
+    <header>
+      <div className={'container'}>
+        <div className={cn('row', 'flex', 'flex-wrap')}>
+          <div className={cn('header-container', 'relative', 'w-full', 'max-w-full', 'py-0', 'px-[15px]', 'mt-[8vh]')}>
+            <div className={cn('main-header', 'flex', 'items-center', 'justify-between')}>
+              <div className={cn('header-path', 'small', 'flex', 'gap-[12px]')}>
+                <Link className={cn('text-color-secondary')} href="https://kimbap.app">kimbap.app</Link>
+                <span className={cn('text-color-secondary')}>/</span>
+                <span>{computedPathName}</span>
+              </div>
 
-      {items?.length ? (
-        <nav className="hidden gap-6 md:flex">
-          {items?.map((item, index) => (
-            <Link 
-              key={index}
-              href={item.disabled ? '#' : item.href}
-              className={cn(
-                "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                item.disabled && 'cursor-not-allowed opacity-80'
-              )}
-            >
-              {item.title}
-            </Link>
-          ))}
-        </nav>
-      ) : null}
-
-      <button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-      >
-        {showMobileMenu ? <span>close</span> : <span>{LOGO}</span>}
-        {/* <span className="font-bold">Menu</span> */}
-      </button>
-      {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
-      )}
-    </div>
+              <div className={cn('header-menu-btn', 'select-none')}>
+              {!isOpen ? 
+                <button type="button" onClick={() => setIsOpen(true)} className={cn('menu-button', 'small')}>Menu</button>
+                : <button type="button" onClick={() => setIsOpen(false)} className={cn('menu-button', 'small')}>Close</button>
+              }
+              </div>
+              
+              <div className={cn('menu-panel', isOpen ? 'open' : 'close', 'bg-color-secondary')} onClick={handlePanelClick}>
+                <div className={cn('nav-columns', 'flex')}>
+                  <div className={cn('column', 'w-[50%]')}>
+                    <h2 className={'m-0'}>Information</h2>
+                    <ul>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/about">About</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/work">Work</Link></li>
+                      {/* 블로그는 나만 보이게 */}
+                      {/* <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/blog">Blog</Link></li> */}
+                    </ul>
+                  </div>
+                  <div className={cn('column', 'w-[50%]')}>
+                    <h2 className={'m-0'}>Browse</h2>
+                    <ul>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/gallery">Gallery</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/goods">Goods</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/soundscape">SoundScape</Link></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   )
 }
 

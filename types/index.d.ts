@@ -8,14 +8,14 @@ export type SiteConfig = {
   }
 }
 
-export type MainNavItem = NavItem
-
 export type NavItem = {
   title: string
   href: string
   disabled?: boolean
 }
 
-export interface NavProps {
-  items?: MainNavItem[]
+export type MainNavItem = NavItem
+
+export type NavConfig = {
+  mainNav: MainNavItem[]
 }
