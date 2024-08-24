@@ -9,7 +9,13 @@ export function Hero ({
 }: HeroProps) {
   return (
     <section className={cn('py-[28vh]')}>
-      {children}
+      <div className={cn('container')}>
+        <div className={cn('row', 'relative', 'flex', 'flex-wrap')}>
+          <div className={cn('w-full', 'max-w-full', 'py-0', 'px-[15px]')}>
+            {children}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

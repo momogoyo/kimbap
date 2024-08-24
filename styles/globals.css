@@ -70,6 +70,12 @@ button {
   background-color: transparent;
 }
 
+h1 {
+  font-size: var(--font-size-large);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
 h2,
 h3,
 h4,
@@ -83,6 +89,12 @@ h6 {
 .container {
   width: 100%;
   max-width: 640px;
+  margin: 0 auto;
+}
+
+.large-container {
+  width: 100%;
+  max-width: 840px;
   margin: 0 auto;
 }
 
@@ -135,6 +147,22 @@ h6 {
   margin-top: var(--spacer-medium);
 }
 
+.medium-margin-bottom {
+  margin-bottom: var(--spacer-medium);
+}
+
+.small-margin-bottom {
+  margin-bottom: var(--spacer-small);
+}
+
+.text-small {
+  font-size: var(--font-size-small);
+}
+
+.text-regular {
+  font-size: var(--font-size-regular);
+}
+
 .texts {
   font-weight: 400;
   font-size: var(--font-size-regular);
@@ -153,4 +181,20 @@ h6 {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.lazy {
+  background-image: url('/loader.gif');
+  background-size: 24px 24px;
+  background-color: var(--bg-secondary);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.fluid-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-regular);
+  overflow: hidden; 
 }
