@@ -40,7 +40,7 @@ export function Header () {
         <div className={cn('row')}>
           <div className={cn('header-container', 'relative', 'w-full', 'max-w-full', 'py-0', 'px-[15px]', 'mt-[8vh]')}>
             <div className={cn('main-header', 'flex', 'items-center', 'justify-between')}>
-              <div className={cn('header-path', 'small', 'flex', 'gap-[12px]')}>
+              <div className={cn('header-path', 'text-[length:var(--font-size-small)]', 'flex', 'gap-[12px]')}>
                 <Link className={cn('text-[var(--text-secondary)]')} href="https://kimbap.app">kimbap.app</Link>
                 <span className={cn('text-[var(--text-secondary)]')}>/</span>
                 <span>{computedPathName}</span>
@@ -48,8 +48,8 @@ export function Header () {
 
               <div className={cn('header-menu-btn', 'select-none')}>
               {!isOpen ? 
-                <button type="button" onClick={() => setIsOpen(true)} className={cn('menu-button', 'small')}>Menu</button>
-                : <button type="button" onClick={() => setIsOpen(false)} className={cn('menu-button', 'small')}>Close</button>
+                <button type="button" onClick={() => setIsOpen(true)} className={cn('menu-button', 'text-[length:var(--font-size-small)]')}>Menu</button>
+                : <button type="button" onClick={() => setIsOpen(false)} className={cn('menu-button', 'text-[length:var(--font-size-small)]')}>Close</button>
               }
               </div>
               
