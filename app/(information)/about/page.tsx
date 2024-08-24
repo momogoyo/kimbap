@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-export function AboutPage () {
+export default async function AboutPage () {
   return (
     <section>
       <div className={'container'}>
@@ -44,5 +44,3 @@ export function AboutPage () {
     </section>
   )
 }
-
-export default AboutPage
