@@ -1,4 +1,4 @@
 # @momogoyo/kimbap
 
 <br />
-<img src="https://github.com/momogoyo/kimbap/assets/131684279/1f6ca133-83a6-406b-a410-89c6400d7855" />
+<img src="https://github.com/user-attachments/assets/5678aeb5-9e42-4669-b0cd-edf985531f5a" />
