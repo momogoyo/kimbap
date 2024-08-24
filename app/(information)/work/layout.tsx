@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils'
 import Hero from '@/components/Hero'
 
 interface WorkLayoutProps {
@@ -14,7 +13,7 @@ export default function WorkLayout ({
         <h1>
           Selected Projects
           <br />
-          <span className={'text-color-secondary'}>2021-06</span>
+          <span className={'text-[var(--text-secondary)]'}>2021-06</span>
         </h1>
       </Hero>
 

@@ -37,12 +37,12 @@ export function Header () {
   return (
     <header>
       <div className={'container'}>
-        <div className={cn('row', 'flex', 'flex-wrap')}>
+        <div className={cn('row')}>
           <div className={cn('header-container', 'relative', 'w-full', 'max-w-full', 'py-0', 'px-[15px]', 'mt-[8vh]')}>
             <div className={cn('main-header', 'flex', 'items-center', 'justify-between')}>
               <div className={cn('header-path', 'small', 'flex', 'gap-[12px]')}>
-                <Link className={cn('text-color-secondary')} href="https://kimbap.app">kimbap.app</Link>
-                <span className={cn('text-color-secondary')}>/</span>
+                <Link className={cn('text-[var(--text-secondary)]')} href="https://kimbap.app">kimbap.app</Link>
+                <span className={cn('text-[var(--text-secondary)]')}>/</span>
                 <span>{computedPathName}</span>
               </div>
 
@@ -53,23 +53,23 @@ export function Header () {
               }
               </div>
               
-              <div className={cn('menu-panel', isOpen ? 'open' : 'close', 'bg-color-secondary')} onClick={handlePanelClick}>
+              <div className={cn('menu-panel', isOpen ? 'open' : 'close', 'bg-[color:var(--bg-secondary)]')} onClick={handlePanelClick}>
                 <div className={cn('nav-columns', 'flex')}>
                   <div className={cn('column', 'w-[50%]')}>
                     <h2 className={'m-0'}>Information</h2>
                     <ul>
-                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/about">About</Link></li>
-                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/work">Work</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/about">About</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/work">Work</Link></li>
                       {/* 블로그는 나만 보이게 */}
-                      {/* <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/blog">Blog</Link></li> */}
+                      {/* <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/blog">Blog</Link></li> */}
                     </ul>
                   </div>
                   <div className={cn('column', 'w-[50%]')}>
                     <h2 className={'m-0'}>Browse</h2>
                     <ul>
-                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/gallery">Gallery</Link></li>
-                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/goods">Goods</Link></li>
-                      <li className={cn('my-[10px]')}><Link className={cn('text-color-secondary')} href="/soundscape">SoundScape</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/gallery">Gallery</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/goods">Goods</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/soundscape">SoundScape</Link></li>
                     </ul>
                   </div>
                 </div>

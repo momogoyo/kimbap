@@ -16,23 +16,23 @@ export default async function WorkPage () {
             {work.items.map((item, index) => (
               <a className={cn('block', 'relative', 'my-[8vh]')} key={`${item.title} - ${index}`}>
                 <div className={cn('large-container')}>
-                  <div className={cn('row', 'flex', 'flex-wrap')}>
-                    <div className={cn('col-100', 'w-[100%]', 'px-[15px]', 'max-w-[100%]')}>
-                      <Image className={cn('lazy', 'fluid-img', 'medium-margin-bottom')} src={item.thumbnail} alt={item.title} width={1600} height={1200} />
+                  <div className={cn('row')}>
+                    <div className={cn('column-100')}>
+                      <Image className={cn('lazy', 'fluid-img', 'mb-[var(--spacer-medium)]')} src={item.thumbnail} alt={item.title} width={1600} height={1200} />
                     </div>
                   </div>
                 </div>
               
                 <div className={cn('container')}>
-                  <div className={cn('row', 'flex', 'flex-wrap')}>
-                    <div className={cn('row', 'flex', 'flex-wrap')}>
-                      <div className={cn('col-25', 'w-[25%]', 'max-w-[25%]')}>
-                        <p className={cn('text-regular text-color-secondary small-margin-bottom leading-[100%]')}>{item.date}</p>
+                  <div className={cn('row')}>
+                    <div className={cn('row')}>
+                      <div className={cn('w-[25%]', 'max-w-[25%]')}>
+                        <p className={cn('text-[length:var(--font-size-regular)] text-[var(--text-secondary)] mb-[var(--spacer-small)] leading-[100%]')}>{item.date}</p>
                       </div>
-                      <div className={cn('col-75', 'w-[75%]', 'max-w-[75%]')}>
+                      <div className={cn('w-[75%]', 'max-w-[75%]')}>
                         <h3 className={cn('mt-0', 'mb-[0.83em]')}>{item.title}</h3>
-                        <p className={cn('text-regular', 'text-color-secondary', 'small-margin-bottom')}>{item.description}</p>
-                        <p className={'text-small text-color-secondary'}>{item.role}</p>
+                        <p className={cn('text-[length:var(--font-size-regular)]', 'text-[var(--text-secondary)]', 'mb-[var(--spacer-small)]')}>{item.description}</p>
+                        <p className={'text-[length:var(--font-size-small)] text-[var(--text-secondary)]'}>{item.role}</p>
                       </div>
                     </div>
                   </div>
