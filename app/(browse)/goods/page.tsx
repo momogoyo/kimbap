@@ -1,32 +1,62 @@
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
+'use client'
 
-export default async function GoodsPage () {
+import React, { useState, useEffect } from 'react'
+import { cn } from '@/lib/utils'
+import { buttons, type GoodsType } from '@/data'
+import { getGoods, filterGoods } from '@/services/services'
+
+export default function GoodsPage () {
+  const [filtredGoods, setFiltredGoods] = useState<GoodsType[]>([])
+  
+  useEffect(() => {
+    setFiltredGoods(getGoods())
+  }, [])
+
+  function handleButton(event: React.MouseEvent<HTMLButtonElement>) {
+    const type = (event.currentTarget as HTMLButtonElement).value as string
+    
+    if (type !== 'all') {
+      setFiltredGoods(filterGoods(type))
+    } else {
+      setFiltredGoods(getGoods())
+    }
+  }
+
   return (
     <section className={cn('goods')}>
-      <div className={cn('goods-tags')}>
-
-      </div>
-
       <div className={cn('large-container')}>
-        {/* <div className={cn('row')}> */}
-
-          <div className={cn('goods-container', 'row', 'gap-[20px]', 'items-center', 'justify-start', 'px-[30px]', 'py-0')}>
-          {Array(5).fill(null).map((_, index) => (
-            <div className={cn('md:w-[calc(50%_-_10px)] sm:w-[100%]', 'mb-[var(--spacer-large)]')}>
-              <img src={'thumbnail.jpg'} className={cn('mb-[20px]')} />
-
-              <div className={cn('metadata')}>
-                <p className={cn('text-[length:var(--font-size-large)]', 'text-[var(--text-primary)]')}>스티커</p>
-                <p className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-secondary)]')}>5000₩</p>
-                <p className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-primary)]', 'mt-[var(--spacer-medium)] mb-[var(--spacer-small)]')}>엉뚱한 미더덕의 일상 이모티콘을 스티커로 제작했습니다. 잘 찢어지지 않는 코팅 형 스티커로, 제거할 때에도 지저분하게 제거되지 않아요!</p>
-                <a className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-secondary)]')}>→ Add to cart</a>
-              </div>
-            </div>
+        <div className={cn('goods-tags', 'px-[30px]')}>
+          <ul className={cn('row', 'gap-[4px]')}>
+          {buttons.map((button, index) => (
+            <li key={index}>
+              <button 
+                type="button"
+                value={button.type}
+                className={cn('text-[length:var(--font-size-small)]', 'py-[4px], px-[12px]')}
+                onClick={handleButton}
+              >
+                {button.name}
+              </button>
+            </li>
           ))}
-            
-          </div>
-      {/* </div> */}
+          </ul>
+        </div>
+
+        <div className={cn('goods-container', 'row', 'gap-[20px]', 'items-center', 'justify-start', 'px-[30px]', 'py-0', 'mt-[var(--spacer-large)]')}>
+          {filtredGoods && 
+            filtredGoods.map((goods, index) => (
+              <div key={goods.id} className={cn('md:w-[calc(50%_-_10px)] sm:w-[100%]', 'mb-[var(--spacer-large)]')}>
+                <img src={'thumbnail.jpg'} className={cn('mb-[20px]')} />
+
+                <div className={cn('metadata')}>
+                  <p className={cn('text-[length:var(--font-size-large)]', 'text-[var(--text-primary)]')}>{goods.name}</p>
+                  <p className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-secondary)]')}>{goods.price}원</p>
+                  <p className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-primary)]', 'mt-[var(--spacer-medium)] mb-[var(--spacer-small)]')}>{goods.description}</p>
+                  <a className={cn('text-[length:var(--font-size-small)]', 'text-[var(--text-secondary)]')}>→ Add to cart</a>
+                </div>
+              </div>
+          ))}
+        </div>
       </div>
     </section>
   )
