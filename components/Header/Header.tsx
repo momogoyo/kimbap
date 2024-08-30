@@ -55,21 +55,26 @@ export function Header () {
               
               <div className={cn('menu-panel', isOpen ? 'open' : 'close', 'bg-[color:var(--bg-secondary)]')} onClick={handlePanelClick}>
                 <div className={cn('nav-columns', 'flex')}>
-                  <div className={cn('column', 'w-[50%]')}>
+                  <div className={cn('column', 'w-[33.3%]')}>
                     <h2 className={'m-0'}>Information</h2>
                     <ul>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/about">About</Link></li>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/work">Work</Link></li>
-                      {/* 블로그는 나만 보이게 */}
-                      {/* <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/blog">Blog</Link></li> */}
                     </ul>
                   </div>
-                  <div className={cn('column', 'w-[50%]')}>
+                  <div className={cn('column', 'w-[33.3%]')}>
                     <h2 className={'m-0'}>Browse</h2>
                     <ul>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/gallery">Gallery</Link></li>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/goods">Goods</Link></li>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/soundscape">SoundScape</Link></li>
+                    </ul>
+                  </div>
+                  <div className={cn('column', 'w-[33.3%]')}>
+                    <h2 className={'m-0'}>Research</h2>
+                    <ul>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/blog">Blog</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/kimbap">Kimbap</Link></li>
                     </ul>
                   </div>
                 </div>
