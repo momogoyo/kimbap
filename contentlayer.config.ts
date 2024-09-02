@@ -22,11 +22,63 @@ export const Kimbap = defineDocumentType(() => ({
       required: true,
     },
     description: {
-      type: 'string'
-    },
-    image: {
       type: 'string',
-      default: 'https://static.oku.club/static/media/oku@2x.78506015.png'
+    },
+    date: {
+      type: 'date',
+      required: true,
+    },
+    published: {
+      type: 'boolean',
+      default: true,
+    },
+    featured: {
+      type: 'boolean',
+      default: false,
+    }
+  },
+  computedFields
+}))
+
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: `blog/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
+    },
+    date: {
+      type: 'date',
+      required: true,
+    },
+    published: {
+      type: 'boolean',
+      default: true,
+    },
+    featured: {
+      type: 'boolean',
+      default: false,
+    }
+  },
+  computedFields
+}))
+
+export const Onibooks = defineDocumentType(() => ({
+  name: 'Onibooks',
+  filePathPattern: `onibooks/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
     },
     date: {
       type: 'date',
@@ -46,7 +98,7 @@ export const Kimbap = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: './content',
-  documentTypes: [Kimbap],
+  documentTypes: [Kimbap, Post, Onibooks],
   mdx: {
     remarkPlugins: [remarkGfm]
   }

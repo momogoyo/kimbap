@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { allKimbaps } from '@/.contentlayer/generated'
+import { cn } from '@/lib/utils'
 
 import ResearchHeader from '@/components/ResearchHeader'
 import MDX from '@/components/Mdx'
@@ -49,14 +50,20 @@ export default async function KimbapPage ({
   }
 
   return (
-    <main className="container relative max-w-[816px] mx-auto pb-12 px-8">
-      <ResearchHeader 
-        date={kimbap.date}
-        heading={kimbap?.title}
-        text={kimbap?.description}
-      />
+    <section className={cn('onibooks-content', 'pt-[var(--spacer-large)]')}>
+      <div className={'container'}>
+        <div className={cn('row', 'relative')}>
+          <div className={cn('column-100', 'py-0')}>
+            <ResearchHeader 
+              date={kimbap.date}
+              heading={kimbap?.title}
+              text={kimbap?.description}
+            />
 
-      <MDX code={kimbap.body.code} />
-    </main>
+            <MDX code={kimbap.body.code} />
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

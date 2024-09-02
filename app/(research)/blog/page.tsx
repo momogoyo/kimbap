@@ -1,18 +1,18 @@
 import Link from 'next/link'
-import { allKimbaps } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { cn, formatDate } from '@/lib/utils'
 
 import Hero from '@/components/Hero'
 
 export const metadata = {
-  title: '김밥 연구소',
-  description: '김밥과 UX를 관련지어서 김밥의 문화 역사를 기록합니다.'
+  title: '블로그',
+  description: '배움의 모든 것을 기록합니다.'
 }
 
-export default function KimbapPage () {
-  const kimbaps = allKimbaps
-    .filter((kimbap) => kimbap.date)
+export default function BlogPage () {
+  const posts = allPosts
+    .filter((post) => post.date)
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date))
     })
@@ -20,26 +20,26 @@ export default function KimbapPage () {
   return (
     <>
       <Hero>
-        <h1>김밥연구소</h1>
+        <h1>Blog</h1>
       </Hero>
-
-      <section className={cn('kimbap-feed')}>
+      
+      <section className={cn('blog-feed')}>
         <div className={'container'}>
           <div className={cn('row', 'relative')}>
             <div className={cn('column-100', 'py-0')}>
               <h2 className={cn('mb-[12px]')}>2024</h2>
-
-              {kimbaps?.length ? (
-                kimbaps.map((kimbap, index) => (
-                  <Link 
-                    href={kimbap.slug} 
+        
+              {posts?.length ? (
+                posts.map((post, index) => (
+                  <Link
+                    href={post.slug}
                     className={cn('border-t-[color:var(--border)] block relative cursor-pointer px-0 py-[1.5vh] border-t border-solid')}
                   >
-                    <article key={kimbap._id}>
+                    <article key={post._id}>
                       <div>
-                        <h2>{kimbap.title}</h2>
-                        <p className="text-muted-foreground">{kimbap.description}</p>
-                        <p className="text-xs text-muted-foreground">{formatDate(kimbap.date)}</p>
+                        <h2>{post.title}</h2>
+                        <p className="text-muted-foreground">{post.description}</p>
+                        <p className="text-xs text-muted-foreground">{formatDate(post.date)}</p>
                       </div>
 
                       <span className="sr-only">View</span>
@@ -47,7 +47,7 @@ export default function KimbapPage () {
                   </Link>
                 ))
               ) : (
-                <p>연구 기록이 없습니다.</p>
+                <p>기록이 없습니다.</p>
               )}
             </div>
           </div>

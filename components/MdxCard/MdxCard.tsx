@@ -20,6 +20,7 @@ export function MdxCard ({
           {children}
         </div>
       </div>
+      
       {href && (
         <Link href={disabled ? '#' : href} className="absolute inset-0">
           <span className="sr-only">View</span>

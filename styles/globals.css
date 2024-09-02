@@ -130,6 +130,7 @@ h6 {
 .open {
   opacity: 1;
   visibility: visible;
+  z-index: 1;
 }
 
 .close {
@@ -176,5 +177,5 @@ h6 {
   width: 100%;
   height: auto;
   border-radius: var(--radius-regular);
-  overflow: hidden; 
+  overflow: hidden;
 }

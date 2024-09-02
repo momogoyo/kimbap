@@ -75,6 +75,7 @@ export function Header () {
                     <ul>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/blog">Blog</Link></li>
                       <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/kimbap">Kimbap</Link></li>
+                      <li className={cn('my-[10px]')}><Link className={cn('text-[var(--text-secondary)]')} href="/onibooks">Onibooks</Link></li>
                     </ul>
                   </div>
                 </div>

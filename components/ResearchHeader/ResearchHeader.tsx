@@ -1,5 +1,3 @@
-import { formatDate } from '@/lib/utils'
-
 interface ResearchHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   date: string
   heading: string
