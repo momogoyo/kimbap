@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+// import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
 import UX from '@/components/UX'
@@ -12,13 +13,15 @@ interface UXLayoutProps {
 export default function UXLayout ({
   children
 }: React.PropsWithChildren<UXLayoutProps>) {
+  // const router = useRouter()
+  
   const projectLength = Object.keys(UX).length
   const [currentIndex, setCurrentIndex] = useState<number>(0)
-
+  
   const uxComponents = Object.entries(UX)
   const [, Component] = uxComponents[currentIndex]
   const TypedComponent = Component as React.ComponentType
-
+  
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projectLength) % projectLength)
   }
@@ -26,6 +29,10 @@ export default function UXLayout ({
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projectLength)
   }
+  
+  //  useEffect(() => {
+  //   router.replace(`/ux/${currentIndex}`)
+  // }, [currentIndex])
 
   return (
     <div className={cn('relative max-w-[840px] px-[15px]')} style={{margin: '0 auto'}}>
